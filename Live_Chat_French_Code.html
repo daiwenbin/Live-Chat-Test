@@ -29,6 +29,33 @@
                 embedded_svc.settings.displayHelpButton = true; //Or false
                 embedded_svc.settings.language = 'fr'; //For example, enter 'en' or 'en-US'
 
+                
+
+                //设置聊天前聊天脚本的自定义字段
+                embedded_svc.settings.extraPrechatFormDetails = [{
+                    "label": "PageUrl",
+                    "value":  window.location.href,
+                    "displayToAgent": true,
+                    "transcriptFields": ["PageUrl__c"]
+                },
+                {
+                    "label":"Prénom", 
+                    "transcriptFields": ["First_Name__c"]
+                },
+                {
+                    "label":"Nom", 
+                    "transcriptFields": ["Last_Name__c"]
+                },
+                {
+                    "label":"Adresse e-mail", 
+                    "transcriptFields": ["Email__c"]
+                }
+                // {
+                //     "label":"Mobile", 
+                //     "transcriptFields": ["Phone__c"]
+                // }
+                ];
+                    
                 //设置聊天前联系人字段
                 embedded_svc.settings.extraPrechatInfo = [{
                     "entityName":"Contact",
@@ -60,32 +87,8 @@
                         //  "label":"Mobile"
                         // }
                     ],
-                }];
-
-                //设置聊天前聊天脚本的自定义字段
-                embedded_svc.settings.extraPrechatFormDetails = [{
-                    "label": "PageUrl",
-                    "value":  window.location.href,
-                    "displayToAgent": true,
-                    "transcriptFields": ["PageUrl__c"]
-                },
-                {
-                    "label":"Prénom", 
-                    "transcriptFields": ["First_Name__c"]
-                },
-                {
-                    "label":"Nom", 
-                    "transcriptFields": ["Last_Name__c"]
-                },
-                {
-                    "label":"Adresse e-mail", 
-                    "transcriptFields": ["Email__c"]
-                }
-                // {
-                //     "label":"Mobile", 
-                //     "transcriptFields": ["Phone__c"]
-                // }
-                ];
+                }];    
+                
 
                 embedded_svc.settings.enabledFeatures = ['LiveAgent'];
                 embedded_svc.settings.entryFeature = 'LiveAgent';
