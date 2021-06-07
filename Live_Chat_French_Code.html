@@ -5,7 +5,7 @@
 
         <body>
             <!-- 聊天按钮，使用时可以用自定义的按钮覆盖 -->
-            <input type="button" value="聊天按钮" />
+            <input type="button" value="聊天按钮" onclick="chatBtnClick()"/>
 
 
             <style type='text/css'>
@@ -122,10 +122,10 @@
             }
 
             //聊天按钮点击事件
-            // function chatBtnClick() {
-            //     $('.helpButtonEnabled').trigger("click");
-            //     $(".minimizedContainer").click();
-            // }
+            function chatBtnClick() {
+                $('.helpButtonEnabled').trigger("click");
+                $(".minimizedContainer").click();
+            }
         </script>
         </body>
     </html>
