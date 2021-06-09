@@ -45,7 +45,7 @@
     var initESW = function(gslbBaseURL) {
       console.log(queryParams, 'queryParams') 
       embedded_svc.settings.displayHelpButton = true; //Or false
-      embedded_svc.settings.language = 'fr'; //For example, enter 'en' or 'en-US'
+      embedded_svc.settings.language = queryParams.lan; //For example, enter 'en' or 'en-US' or 'fr'
       //设置聊天前聊天脚本的自定义字段
       embedded_svc.settings.extraPrechatFormDetails = [{
         "label": "PageUrl",
@@ -55,15 +55,18 @@
       },
       {
         "label":"Prénom", 
-        "transcriptFields": ["First_Name__c"]
+        "transcriptFields": "wqewew"
+        // "transcriptFields": ["First_Name__c"]
       },
       {
         "label":"Nom", 
-        "transcriptFields": ["Last_Name__c"]
+        "transcriptFields": "234243"
+        // "transcriptFields": ["Last_Name__c"]
       },
       {
         "label":"Adresse e-mail", 
-          "transcriptFields": ["Email__c"]
+        "transcriptFields": "sasswe@qq.com"
+          // "transcriptFields": ["Email__c"]
       }
       // {
       //   "label":"Mobile", 
