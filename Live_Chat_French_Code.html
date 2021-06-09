@@ -142,8 +142,9 @@
     }
     setTimeout(() => {
       chatBtnClick()
-    }, 2000,()=>{
-      console.log($('.showDockableContainer').html(), '====test')
-    });
+      setTimeout(() => {
+        console.log($('.showDockableContainer').html(), '====test')
+      }, 500);
+    }, 2000);
   </script>
 </html>
