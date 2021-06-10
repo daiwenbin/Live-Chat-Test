@@ -140,6 +140,7 @@
       $('.helpButtonEnabled').trigger("click");
       $(".minimizedContainer").click();
       setTimeout(() => {
+      $('#FirstName').trigger("blur ");
       $('#FirstName').trigger("change");
       $('#FirstName').attr("value", '000099')
       // $('.LastName').val('7777');
