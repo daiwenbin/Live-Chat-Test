@@ -140,10 +140,8 @@
       $('.helpButtonEnabled').trigger("click");
       $(".minimizedContainer").click();
     }
-    // setTimeout(() => {
-    //   chatBtnClick()
-    // }, 1000);
-    setTimeout(() => {
+    $('.helpButtonEnabled').click(function(){
+      setTimeout(() => {
       $('#FirstName').trigger("change");
       $('#FirstName').attr("value", '000099')
       // $('.LastName').val('7777');
@@ -151,5 +149,9 @@
       // $('.uiButton').trigger('click');
       console.log($('.showDockableContainer').html(), '====test1')
     }, 6000);
+    })
+    // setTimeout(() => {
+    //   chatBtnClick()
+    // }, 1000);
   </script>
 </html>
