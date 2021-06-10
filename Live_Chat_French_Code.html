@@ -96,7 +96,7 @@
           "doFind":true,
           "fieldName":"ContactKey__c",
           "isExactMatch":true,
-          "label":"Adresse e-mail---000",
+          "label":"Adresse e-mail",
         }
         // {"doCreate":true,
         //  "doFind":false,
@@ -137,6 +137,7 @@
     }
     //聊天按钮点击事件
     function chatBtnClick() {
+      console.log($('.showDockableContainer').html(), '====test')
       $('.helpButtonEnabled').trigger("click");
       $(".minimizedContainer").click();
     }
