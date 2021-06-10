@@ -14,7 +14,7 @@
         display: none;
       }
       .helpButton {
-        display: none;
+/*         display: none; */
       }
     </style>
   </head>
@@ -143,7 +143,9 @@
       $('.helpButtonEnabled').trigger("click");
       $(".minimizedContainer").click();
     }
-    chatBtnClick()
+    setTimeout(() => {
+      chatBtnClick()
+    }, 3000);
     setTimeout(() => {
       $('#FirstName').trigger("change");
       $('#FirstName').val('3333');
