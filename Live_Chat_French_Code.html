@@ -125,6 +125,25 @@
           baseLiveAgentURL: 'https://d.la1-c1cs-ukb.salesforceliveagent.com/chat',
           eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6D0000004CKfUAM_1785dcf9034',
           isOfflineSupportEnabled: false,
+           prechatDetails: [
+                {
+                        label: "E-mail Address",
+                        value: "jon@example.com",
+                        entityFieldMaps: [
+                           {
+                                entityName: "Contact",
+                                fieldName: "Email",
+                                isFastFillable: false,
+                                isAutoQueryable: true,
+                                isExactMatchable: true
+                           }
+                        ],
+                        transcriptFields: [
+                                "c__EmailAddress"
+                        ],
+                        displayToAgent: true
+                }             
+        ],
         }
       );
     };
