@@ -140,20 +140,14 @@
       $('.helpButtonEnabled').trigger("click");
       $(".minimizedContainer").click();
     }
+    chatBtnClick()
     setTimeout(() => {
-      chatBtnClick()
-    }, 2000);
-      setTimeout(() => {
-        $('#FirstName').trigger("change");
-        $('#FirstName').val('3333');
-        $('.LastName').val('7777');
-        $('.ContactKey__c').val('qwqw@qq.com');
-        $('.uiButton').trigger('click');
-        $('.uiButton').click(function(){
-          //  $('.FirstName').val('3333');
-          console.log($('.FirstName').val())
-        });
-        console.log($('.showDockableContainer').html(), '====test')
-      }, 6000);
+      $('#FirstName').trigger("change");
+      $('#FirstName').val('3333');
+      $('.LastName').val('7777');
+      $('.ContactKey__c').val('qwqw@qq.com');
+      $('.uiButton').trigger('click');
+      console.log($('.showDockableContainer').html(), '====test')
+    }, 500);
   </script>
 </html>
