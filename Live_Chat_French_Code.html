@@ -18,6 +18,11 @@
       .embeddedServiceSidebarMinimizedDefaultUI.helpButton {
         /* display: none; */
       }
+      .dockableContainer{
+        max-width: calc(100% - 0px) !important;
+        height: calc(100%) !important;
+        margin: 0 auto !important;
+      }
       .helpButton {
         display: none;
       }
@@ -65,7 +70,7 @@
 		//};
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+		// embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
     // 设置聊天前信息
     embedded_svc.settings.prepopulatedPrechatFields = {
       FirstName: queryParams.name,
