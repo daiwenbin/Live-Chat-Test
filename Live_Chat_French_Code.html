@@ -22,15 +22,16 @@
         max-width: calc(100% - 0px) !important;
         height: calc(100%) !important;
         margin: 0 auto !important;
+        border-radius: 0 !important;
       }
-      .helpButton {
+      .helpButton,.btnClick{
         display: none;
       }
   </style>
 </head>
 <body>
   <!-- 聊天按钮，使用时可以用自定义的按钮覆盖 -->
-  <input type="button" value="Chat" onclick="chatBtnClick()" />
+  <input type="button" value="Chat" onclick="chatBtnClick()"  class="btnClick" />
 </body>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
@@ -74,7 +75,7 @@
     // 设置聊天前信息
     embedded_svc.settings.prepopulatedPrechatFields = {
       FirstName: queryParams.name,
-      LastName: "Doe",
+      LastName: "Doe", // 没有这个字段，默认填充Doe
       Email: queryParams.email,
       Subject: "Hello"
     };
