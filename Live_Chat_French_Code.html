@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <title></title>
+  <title>Chat session</title>
   <style type='text/css'>
      /*如果需要更改聊天按钮的样式可以在此处修改*/
      .embeddedServiceHelpButton .helpButton .uiButton {
@@ -15,9 +14,7 @@
       .embeddedServiceHelpButton .helpButton .uiButton:focus {
         outline: 1px solid #62cfc5;
       }
-      .embeddedServiceSidebarMinimizedDefaultUI.helpButton {
-        /* display: none; */
-      }
+      /* 设置全屏 */
       .dockableContainer{
         max-width: calc(100% - 0px) !important;
         height: calc(100%) !important;
@@ -29,13 +26,14 @@
       }
   </style>
 </head>
+
 <body>
   <!-- 聊天按钮，使用时可以用自定义的按钮覆盖 -->
   <input type="button" value="Chat" onclick="chatBtnClick()"  class="btnClick" />
 </body>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript' src='https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js'></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 <script type='text/javascript'>
   //获取URL参数
   function GetRequest() {
@@ -58,20 +56,6 @@
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = queryParams.lan; //For example, enter 'en' or 'en-US'
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-
-		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		// embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
     // 设置聊天前信息
     embedded_svc.settings.prepopulatedPrechatFields = {
       FirstName: queryParams.name,
@@ -81,7 +65,6 @@
     };
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-
 		embedded_svc.init(
 			'https://anker--dev.my.salesforce.com',
 			'https://dev-support-eufylife.cs73.force.com/test1',
@@ -98,7 +81,6 @@
 			}
 		);
 	};
-
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://anker--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
