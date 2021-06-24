@@ -53,7 +53,27 @@
       queryParams.email = decodeURIComponent(queryParams.email)
       queryParams.name = decodeURIComponent(queryParams.name)
     }
-	var initESW = function(gslbBaseURL) {
+  // 处理默认点击登陆
+  function login(){
+    var timer = setInterval(function () {
+      console.log('===+20')
+      if ($('.startButton').html()) {
+        console.log('===+21')
+        $('.startButton').trigger("click");
+        clearInterval(timer)
+      }
+    }, 100)
+  }
+  //聊天按钮点击事件
+  function chatBtnClick() {
+        console.log('===+1')
+    $(".helpButtonEnabled").trigger("click");
+    $(".minimizedContainer").click();
+    login();
+  }
+
+  $(function(){
+    var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = queryParams.lan; //For example, enter 'en' or 'en-US'
     // 设置聊天前信息
@@ -91,26 +111,6 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-  // 处理默认点击登陆
-  function login(){
-    var timer = setInterval(function () {
-      console.log('===+20')
-      if ($('.startButton').html()) {
-        console.log('===+21')
-        $('.startButton').trigger("click");
-        clearInterval(timer)
-      }
-    }, 100)
-  }
-  //聊天按钮点击事件
-  function chatBtnClick() {
-        console.log('===+1')
-    $(".helpButtonEnabled").trigger("click");
-    $(".minimizedContainer").click();
-    login();
-  }
-
-  $(function(){
     setTimeout(() => {
         console.log('===+0')
       chatBtnClick()
