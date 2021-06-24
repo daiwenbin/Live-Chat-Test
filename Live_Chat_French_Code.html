@@ -22,7 +22,7 @@
         border-radius: 0 !important;
       }
       .helpButton,.btnClick{
-        /* display: none; */
+        display: none;
       }
   </style>
 </head>
@@ -65,7 +65,7 @@
   //聊天按钮点击事件
   function chatBtnClick() {
     var timer = setInterval(function () {
-      if ($('.helpButtonEnabled').html()) {
+      if ($('.message').text() == "Chat with an Expert") {
         $(".helpButtonEnabled").trigger("click");
         $(".minimizedContainer").click();
         login();
