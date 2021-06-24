@@ -56,9 +56,7 @@
   // 处理默认点击登陆
   function login(){
     var timer = setInterval(function () {
-      console.log('===+20')
       if ($('.startButton').html()) {
-        console.log('===+21')
         $('.startButton').trigger("click");
         clearInterval(timer)
       }
@@ -66,7 +64,6 @@
   }
   //聊天按钮点击事件
   function chatBtnClick() {
-        console.log('===+1')
     $(".helpButtonEnabled").trigger("click");
     $(".minimizedContainer").click();
     login();
@@ -101,18 +98,17 @@
 			}
 		);
 	};
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://anker--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
+    if (!window.embedded_svc) {
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://anker--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+      s.onload = function() {
+        initESW(null);
+      };
+      document.body.appendChild(s);
+    } else {
+      initESW('https://service.force.com');
+    }
     setTimeout(() => {
-        console.log('===+0')
       chatBtnClick()
     }, 1000);
   })
