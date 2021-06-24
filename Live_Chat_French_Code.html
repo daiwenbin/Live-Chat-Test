@@ -94,12 +94,13 @@
   // 处理默认点击登陆
   function login(){
     var timer = setInterval(function () {
+      console.log('===+20')
       if ($('.startButton').html()) {
-        console.log('===+2')
+        console.log('===+21')
         $('.startButton').trigger("click");
         clearInterval(timer)
       }
-    }, 500)
+    }, 100)
   }
   //聊天按钮点击事件
   function chatBtnClick() {
