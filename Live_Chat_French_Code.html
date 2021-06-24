@@ -95,6 +95,7 @@
   function login(){
     var timer = setInterval(function () {
       if ($('.startButton').html()) {
+        console.log('===+2')
         $('.startButton').trigger("click");
         clearInterval(timer)
       }
@@ -102,6 +103,7 @@
   }
   //聊天按钮点击事件
   function chatBtnClick() {
+        console.log('===+1')
     $(".helpButtonEnabled").trigger("click");
     $(".minimizedContainer").click();
     login();
@@ -109,6 +111,7 @@
 
   $(function(){
     setTimeout(() => {
+        console.log('===+0')
       chatBtnClick()
     }, 1000);
   })
