@@ -106,8 +106,11 @@
     $(".minimizedContainer").click();
     login();
   }
-  setTimeout(() => {
-    chatBtnClick()
-  }, 1000);
+
+  $(function(){
+    setTimeout(() => {
+      chatBtnClick()
+    }, 1000);
+  })
 </script>
 </html>
