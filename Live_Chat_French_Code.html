@@ -64,9 +64,14 @@
   }
   //聊天按钮点击事件
   function chatBtnClick() {
-    $(".helpButtonEnabled").trigger("click");
-    $(".minimizedContainer").click();
-    login();
+    var timer = setInterval(function () {
+      if ($('.helpButtonEnabled').html()) {
+        $(".helpButtonEnabled").trigger("click");
+        $(".minimizedContainer").click();
+        login();
+        clearInterval(timer)
+      }
+    }, 100)
   }
 
   $(function(){
