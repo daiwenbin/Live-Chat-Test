@@ -24,17 +24,53 @@
       .helpButton,.btnClick{
         display: none;
       }
+      .Loading {
+        width: 100%;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        height: 100px;
+        font-size: 12px;
+      }
+      .Loading .span {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          animation: spinner 1s linear infinite;
+          -webkit-animation: spinner 1s linear infinite;
+        }
+      @keyframes spinner {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(160deg);
+            z-index: 8;
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+      }
+
   </style>
 </head>
 
 <body>
   <!-- 聊天按钮，使用时可以用自定义的按钮覆盖 -->
   <input type="button" value="Chat" onclick="chatBtnClick()"  class="btnClick" />
-</body>
-
+  <div class="center Loading">
+    <img src="https://eufy-security-pr.s3.amazonaws.com/overall/liveChatLoading.png" alt="" class="span"/>
+    <p>Please hold one second while we connect you...</p>
+  </div>
+  </body>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 <script type='text/javascript'>
+
   //获取URL参数
   function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
@@ -58,6 +94,8 @@
     var timer = setInterval(function () {
       if ($('.startButton').html()) {
         $('.startButton').trigger("click");
+        $('.center').hide();
+        $('.minimizeButton').hide();
         clearInterval(timer)
       }
     }, 100)
@@ -109,9 +147,18 @@
         initESW(null);
       };
       document.body.appendChild(s);
+      console.log($('.closeButton').html())
     } else {
       initESW('https://service.force.com');
     }
+    // 隐藏关闭按钮和缩小按钮
+    var closeButton = setInterval(function(){
+      var closeButtonHide = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').hide();
+      $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.minimizeButton').hide()
+        if (closeButtonHide.length ===1) {
+          clearInterval(closeButton)
+        }
+    }, 500);
     setTimeout(() => {
       chatBtnClick()
     }, 1000);
