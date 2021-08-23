@@ -182,6 +182,24 @@
         "value":  queryParams.productType,
         "displayToAgent": true,
         "transcriptFields": ["Product_Type__c"]
+      },
+      {
+        "label": "Source",
+        "value":  'App',
+        "displayToAgent": true,
+        "transcriptFields": ["Source__c"]
+      },
+      {
+        "label": "Custom Language",
+        "value":  queryParams.lan,
+        "displayToAgent": true,
+        "transcriptFields": ["Custom_Language__c"]
+      },
+      {
+        "label": "Source Desc",
+        "value":  queryParams.appType, // app名称暂时为提供
+        "displayToAgent": true,
+        "transcriptFields": ["Source_Desc__c"]
       }
     ];
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
