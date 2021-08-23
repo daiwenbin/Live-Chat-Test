@@ -124,7 +124,7 @@
     embedded_svc.settings.prepopulatedPrechatFields = {
       FirstName: queryParams.name,
       // LastName: 'appType：' + queryParams.appType+'，osType：'+queryParams.osType+'，country：'+queryParams.country+'，AppVersion：'+queryParams.AppVersion+'，name：', // 没有lastName这个字段
-      LastName: '空',
+      LastName: "空",
       Email: queryParams.email,
       Subject: "Hello"
     };
@@ -161,7 +161,7 @@
       },
       {
         "label": "First Name",
-        "value": '',
+        "value": "",
         "displayToAgent": true,
         "transcriptFields": ["First_Name__c"]
       },
@@ -185,7 +185,7 @@
       },
       {
         "label": "Source",
-        "value":  'App',
+        "value":  "App",
         "displayToAgent": true,
         "transcriptFields": ["Source__c"]
       },
@@ -200,6 +200,12 @@
         "value":  queryParams.appType, // app名称暂时为提供
         "displayToAgent": true,
         "transcriptFields": ["Source_Desc__c"]
+      },
+      {
+        "label": "Brand",
+        "value": "eufy",
+        "displayToAgent": true,
+        "transcriptFields": ["Brand__c"]
       }
     ];
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
