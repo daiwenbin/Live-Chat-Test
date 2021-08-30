@@ -123,9 +123,8 @@
     // 设置聊天前信息appType=eufySecurity&osType=ios&country=%@&AppVersion=%@
     embedded_svc.settings.prepopulatedPrechatFields = {
       FirstName: queryParams.name,
-      // LastName: 'appType：' + queryParams.appType+'，osType：'+queryParams.osType+'，country：'+queryParams.country+'，AppVersion：'+queryParams.AppVersion+'，name：', // 没有lastName这个字段
       LastName: "空",
-      Email: queryParams.email,
+      ContactKey__c: queryParams.email,
       Subject: "Hello"
     };
     //设置聊天前聊天脚本的自定义字段
@@ -210,21 +209,21 @@
     ];
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-		embedded_svc.init(
-			'https://anker--dev.my.salesforce.com',
-			'https://dev-support-eufylife.cs73.force.com/test1',
-			gslbBaseURL,
-			'00D6D0000008f1Q',
-			'Eufylife_Embedded_Service_For_App_test',
-			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-hnd.salesforceliveagent.com/content',
-				deploymentId: '5726D0000008OXU',
-				buttonId: '5736D0000008Ohu',
-				baseLiveAgentURL: 'https://d.la1-c1cs-hnd.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6D0000004CRpUAM_17a0e7012e3',
-				isOfflineSupportEnabled: false
-			}
-		);
+    embedded_svc.init(
+        'https://anker--dev.my.salesforce.com',
+        'https://dev-support-eufylife.cs73.force.com',
+        gslbBaseURL,
+        '00D6D0000008f1Q',
+        'Eufylife',
+        {
+            baseLiveAgentContentURL: 'https://c.la1-c1cs-hnd.salesforceliveagent.com/content',
+            deploymentId: '5726D0000008OXU',
+            buttonId: '5736D0000008Ojq',
+            baseLiveAgentURL: 'https://d.la1-c1cs-hnd.salesforceliveagent.com/chat',
+            eswLiveAgentDevName: 'Eufylife',
+            isOfflineSupportEnabled: false
+        }
+    );
 	};
     if (!window.embedded_svc) {
       var s = document.createElement('script');
@@ -233,18 +232,17 @@
         initESW(null);
       };
       document.body.appendChild(s);
-      console.log($('.closeButton').html())
     } else {
       initESW('https://service.force.com');
     }
   //   // 隐藏关闭按钮和缩小按钮
-    var closeButton = setInterval(function(){
-      var closeButtonHide = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').hide();
-      $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.minimizeButton').hide()
-        if (closeButtonHide.length ===1) {
-          clearInterval(closeButton)
-        }
-    }, 500);
+    // var closeButton = setInterval(function(){
+    //   var closeButtonHide = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').hide();
+    //   $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.minimizeButton').hide()
+    //     if (closeButtonHide.length ===1) {
+    //       clearInterval(closeButton)
+    //     }
+    // }, 500);
     setTimeout(() => {
       chatBtnClick()
     }, 1000);
