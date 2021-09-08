@@ -136,8 +136,8 @@
 		embedded_svc.settings.language = queryParams.lan; //For example, enter 'en' or 'en-US'
     // 设置聊天前信息appType=eufySecurity&osType=ios&country=%@&AppVersion=%@
     embedded_svc.settings.prepopulatedPrechatFields = {
-      FirstName: queryParams.name,
-      LastName: "空",
+      FirstName: "空",
+      LastName: queryParams.name,
       ContactKey__c: queryParams.email,
       Subject: "Hello"
     };
@@ -283,8 +283,8 @@
           //embedded_svc.settings.offlineSupportMinimizedText = '...'; //（默认设置为联系我们）
           // 设置聊天前信息appType=eufySecurity&osType=ios&country=%@&AppVersion=%@
           embedded_svc.settings.prepopulatedPrechatFields = {
-            FirstName: queryParams.name,
-            LastName: "空",
+            FirstName: "空",
+            LastName: queryParams.name,
             Email: queryParams.email,
             Subject: "Hello"
           };
