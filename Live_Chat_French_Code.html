@@ -439,8 +439,9 @@
     }, 1000);
     // 点击关闭调用手机端方法
     var cloneBtn = setInterval(() => {
-      var fankui = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents()
-      console.log(fankui, '触发')
+      var fankui = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents().find('body')
+      var fankui1 = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents().find('html')
+      console.log(fankui, '触发',fankui1)
       if ($('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.closeChatButton')) {
         $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.closeChatButton').click(()=>{
         var u = navigator.userAgent;
