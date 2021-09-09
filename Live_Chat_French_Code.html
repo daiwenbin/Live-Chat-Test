@@ -440,7 +440,7 @@
     // 点击关闭调用手机端方法
     var cloneBtn = setInterval(() => {
       var fankui = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents().find('body')
-      var fankui1 = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents().find('html')
+      var fankui1 = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents().document.find('body')
       console.log(fankui, '触发',fankui1)
       if ($('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.closeChatButton')) {
         $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.closeChatButton').click(()=>{
