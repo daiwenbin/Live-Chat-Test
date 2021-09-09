@@ -439,17 +439,18 @@
     }, 1000);
     // 点击关闭调用手机端方法
     var cloneBtn = setInterval(() => {
-      if ($('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.endChatButton')) {
-        $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.endChatButton').click(()=>{
+      var fankui = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents().find('.surveyforce').find('from')
+      if ($('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.closeChatButton')) {
+        $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.closeChatButton').click(()=>{
         var u = navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
         if (isAndroid) {
           // 安卓
           window.android.close()
-          console.log('android')
+          console.log('android',fankui)
         } else {
           // ios
-          console.log('ios')
+          console.log('ios',fankui)
         }
         clearInterval(cloneBtn)
         })
