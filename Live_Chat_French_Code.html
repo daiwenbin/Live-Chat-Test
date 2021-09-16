@@ -319,7 +319,7 @@
           embedded_svc.settings.prepopulatedPrechatFields = {
             FirstName: "空",
             LastName: queryParams.name,
-            Email: queryParams.email,
+            ContactKey__c: queryParams.email,
             Subject: "Hello"
           };
           //设置聊天前联系人字段
@@ -362,7 +362,7 @@
               "transcriptFields": ["PageUrl__c"]
           },
           {
-              "label":"Vorname", 
+              "label":"Vorname",
               "value": "",
               "transcriptFields": ["First_Name__c"]
           },
