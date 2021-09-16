@@ -126,177 +126,179 @@
   $(function(){
     const query = GetRequest()
     if (query.lan==='en') {
+      // 英语
       EnConfig()
     }  else {
+      // 德语
       EdConfig()
     }
     function EnConfig () {
       var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = 'en'; //For example, enter 'en' or 'en-US'
-    // 设置聊天前信息appType=eufySecurity&osType=ios&country=%@&AppVersion=%@
-    embedded_svc.settings.prepopulatedPrechatFields = {
-      FirstName: "空",
-      LastName: queryParams.name,
-      ContactKey__c: queryParams.email,
-      Subject: "Hello"
-    };
-    //设置聊天前联系人字段
-    embedded_svc.settings.extraPrechatInfo = [{
-      "entityName":"Contact",
-      "saveToTranscript":"Contact",
-      "showOnCreate":true,
-      "entityFieldMaps":[
-        {"doCreate":true,
-          "doFind":false,
-          "fieldName":"LastName",
-          "isExactMatch":false,
-          "label":"Last Name"
-        },
-        {"doCreate":true,
-          "doFind":false,
-          "fieldName":"FirstName",
-          "isExactMatch":false,
-          "label":"First Name"
-        },
-        {"doCreate":true,
-          "doFind":true,
-          "fieldName":"ContactKey__c",
-          "isExactMatch":true,
-        "label":"Email"
-        },
-        {"doCreate":true,
-          "doFind":false,
-          "fieldName":"Send_Transcript__c",
-          "isExactMatch":false,
-          "label":"Need the chat transcript?"
-        }
-      ]
-  }];
-    //设置聊天前聊天脚本的自定义字段
-    embedded_svc.settings.extraPrechatFormDetails = [
-      {
-        "label": "PageUrl",
-        "value":  window.location.href,
-        "displayToAgent": true,
-        "transcriptFields": ["PageUrl__c"]
-      },
-      {
-        "label": "Os Type",
-        "value": queryParams.appType,
-        "displayToAgent": true,
-        "transcriptFields": ["Os_Type__c"]
-      },
-      {
-        "label": "App Type",
-        "value": queryParams.osType,
-        "displayToAgent": true,
-        "transcriptFields": ["App_Type__c"]
-      },
-      {
-        "label": "AppVersion",
-        "value": queryParams.AppVersion,
-        "displayToAgent": true,
-        "transcriptFields": ["AppVersion__c"]
-      },
-      {
-        "label": "Country",
-        "value": queryParams.country,
-        "displayToAgent": true,
-        "transcriptFields": ["Country__c"]
-      },
-      {
-        "label": "First Name",
-        "value": "",
-        "displayToAgent": true,
-        "transcriptFields": ["First_Name__c"]
-      },
-      {
-        "label": "Email",
-        "value": queryParams.email,
-        "displayToAgent": true,
-        "transcriptFields": ["Email__c"]
-      },
-      {
-        "label": "Last Name",
-        "value": queryParams.name,
-        "displayToAgent": true,
-        "transcriptFields": ["Last_Name__c"]
-      },
-      {
-        "label": "Product Type",
-        "value":  queryParams.productType,
-        "displayToAgent": true,
-        "transcriptFields": ["Product_Type__c"]
-      },
-      {
-        "label": "Source",
-        "value":  "App",
-        "displayToAgent": true,
-        "transcriptFields": ["Source__c"]
-      },
-      {
-        "label": "Custom Language",
-        "value":  queryParams.lan,
-        "displayToAgent": true,
-        "transcriptFields": ["Custom_Language__c"]
-      },
-      {
-        "label": "Source Desc",
-        "value":  queryParams.appType, // app名称暂时为提供
-        "displayToAgent": true,
-        "transcriptFields": ["Source_Desc__c"]
-      },
-      {
-        "label": "Brand",
-        "value": "eufy",
-        "displayToAgent": true,
-        "transcriptFields": ["Brand__c"]
-      },
-      {
-        "label": "Email Transcript",
-        "value": "No",
-        "displayToAgent": true,
-        "transcriptFields": ["Email_Transcript__c"]
-      }
-    ];
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
-    embedded_svc.init(
-      'https://anker--dev.my.salesforce.com',
-      'https://dev-support-eufylife.cs73.force.com',
-      gslbBaseURL,
-      '00D6D0000008f1Q',
-      'Eufylife',
-      {
-        baseLiveAgentContentURL: 'https://c.la1-c1cs-hnd.salesforceliveagent.com/content',
-        deploymentId: '5726D0000008OXU',
-        buttonId: '5736D0000008Ojq',
-        baseLiveAgentURL: 'https://d.la1-c1cs-hnd.salesforceliveagent.com/chat',
-        eswLiveAgentDevName: 'Eufylife',
-        isOfflineSupportEnabled: false
-      }
-    );
-	};
+        embedded_svc.settings.displayHelpButton = true; //Or false
+        embedded_svc.settings.language = 'en'; //For example, enter 'en' or 'en-US'
+        // 设置聊天前信息?companyID=1037166&configID=45393&jid=4634725735&lan=en&email=seiya.fang@40anker.com&name=dev&appType=eufySecurity&productType=Appliances/Security
+        embedded_svc.settings.prepopulatedPrechatFields = {
+          FirstName: "空",
+          LastName: queryParams.name,
+          ContactKey__c: queryParams.email,
+          Subject: "Hello"
+        };
+        //设置聊天前联系人字段
+        embedded_svc.settings.extraPrechatInfo = [{
+          "entityName":"Contact",
+          "saveToTranscript":"Contact",
+          "showOnCreate":true,
+          "entityFieldMaps":[
+            {"doCreate":true,
+              "doFind":false,
+              "fieldName":"LastName",
+              "isExactMatch":false,
+              "label":"Last Name"
+            },
+            {"doCreate":true,
+              "doFind":false,
+              "fieldName":"FirstName",
+              "isExactMatch":false,
+              "label":"First Name"
+            },
+            {"doCreate":true,
+              "doFind":true,
+              "fieldName":"ContactKey__c",
+              "isExactMatch":true,
+            "label":"Email"
+            },
+            {"doCreate":true,
+              "doFind":false,
+              "fieldName":"Send_Transcript__c",
+              "isExactMatch":false,
+              "label":"Need the chat transcript?"
+            }
+          ]
+      }];
+        //设置聊天前聊天脚本的自定义字段
+        embedded_svc.settings.extraPrechatFormDetails = [
+          {
+            "label": "PageUrl",
+            "value":  window.location.href,
+            "displayToAgent": true,
+            "transcriptFields": ["PageUrl__c"]
+          },
+          {
+            "label": "Os Type",
+            "value": queryParams.appType,
+            "displayToAgent": true,
+            "transcriptFields": ["Os_Type__c"]
+          },
+          {
+            "label": "App Type",
+            "value": queryParams.osType,
+            "displayToAgent": true,
+            "transcriptFields": ["App_Type__c"]
+          },
+          {
+            "label": "AppVersion",
+            "value": queryParams.AppVersion,
+            "displayToAgent": true,
+            "transcriptFields": ["AppVersion__c"]
+          },
+          {
+            "label": "Country",
+            "value": queryParams.country,
+            "displayToAgent": true,
+            "transcriptFields": ["Country__c"]
+          },
+          {
+            "label": "First Name",
+            "value": "",
+            "displayToAgent": true,
+            "transcriptFields": ["First_Name__c"]
+          },
+          {
+            "label": "Email",
+            "value": queryParams.email,
+            "displayToAgent": true,
+            "transcriptFields": ["Email__c"]
+          },
+          {
+            "label": "Last Name",
+            "value": queryParams.name,
+            "displayToAgent": true,
+            "transcriptFields": ["Last_Name__c"]
+          },
+          {
+            "label": "Product Type",
+            "value":  queryParams.productType,
+            "displayToAgent": true,
+            "transcriptFields": ["Product_Type__c"]
+          },
+          {
+            "label": "Source",
+            "value":  "App",
+            "displayToAgent": true,
+            "transcriptFields": ["Source__c"]
+          },
+          {
+            "label": "Custom Language",
+            "value":  queryParams.lan,
+            "displayToAgent": true,
+            "transcriptFields": ["Custom_Language__c"]
+          },
+          {
+            "label": "Source Desc",
+            "value":  queryParams.appType, // app名称暂时为提供
+            "displayToAgent": true,
+            "transcriptFields": ["Source_Desc__c"]
+          },
+          {
+            "label": "Brand",
+            "value": "eufy",
+            "displayToAgent": true,
+            "transcriptFields": ["Brand__c"]
+          },
+          {
+            "label": "Email Transcript",
+            "value": "No",
+            "displayToAgent": true,
+            "transcriptFields": ["Email_Transcript__c"]
+          }
+        ];
+        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+        embedded_svc.settings.entryFeature = 'LiveAgent';
+        embedded_svc.init(
+          'https://ankertechnologycompanyltd.my.salesforce.com',
+          'https://support.eufylife.com/',
+          gslbBaseURL,
+          '00D5g000004DkWQ',
+          'Eufylife',
+          {
+            baseLiveAgentContentURL: 'https://c.la2-c1-ukb.salesforceliveagent.com/content',
+            deploymentId: '5725g000000kKK5',
+            buttonId: '5735g000000kLWl',
+            baseLiveAgentURL: 'https://d.la2-c1-ukb.salesforceliveagent.com/chat',
+            eswLiveAgentDevName: 'Eufylife',
+            isOfflineSupportEnabled: false
+          }
+        );
+	    };
       if (!window.embedded_svc) {
         var s = document.createElement('script');
-        s.setAttribute('src', 'https://anker--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+        s.setAttribute('src', 'https://ankertechnologycompanyltd.my.salesforce.com/embeddedservice/5.0/esw.min.js');
         s.onload = function() {
-          initESW(null);
+            initESW(null);
         };
         document.body.appendChild(s);
       } else {
         initESW('https://service.force.com');
       }
-    //   // 隐藏关闭按钮和缩小按钮
-      // var closeButton = setInterval(function(){
-      //   var closeButtonHide = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').hide();
-      //   $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.minimizeButton').hide()
-      //     if (closeButtonHide.length ===1) {
-      //       clearInterval(closeButton)
-      //     }
-      // }, 500);
-    }
+       //   // 隐藏关闭按钮和缩小按钮
+        // var closeButton = setInterval(function(){
+        //   var closeButtonHide = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').hide();
+        //   $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.minimizeButton').hide()
+        //     if (closeButtonHide.length ===1) {
+        //       clearInterval(closeButton)
+        //     }
+        // }, 500);
+      }
     function EdConfig () {
       var initESW = function(gslbBaseURL) {
           embedded_svc.settings.displayHelpButton = true; //或为假
@@ -313,7 +315,7 @@
           //embedded_svc.settings.prepopulatedPrechatFields = {}; //设置自动填充聊天前表单格字段
           //embedded_svc.settings.fallbackRouting = []; //按钮 ID、用户 ID 或 userId_buttonId 的数组
           //embedded_svc.settings.offlineSupportMinimizedText = '...'; //（默认设置为联系我们）
-          // 设置聊天前信息appType=eufySecurity&osType=ios&country=%@&AppVersion=%@
+          // 设置聊天前信息?companyID=1037166&configID=45393&jid=4634725735&lan=en&email=seiya.fang@40anker.com&name=dev&appType=eufySecurity
           embedded_svc.settings.prepopulatedPrechatFields = {
             FirstName: "空",
             LastName: queryParams.name,
@@ -390,7 +392,7 @@
           },
           {
               "label":"Source Desc", 
-              "value":"APP名称",
+              "value": queryParams.appType, // app名称暂时为提供,
               "transcriptFields": ["Source_Desc__c"]
           },
           {
@@ -400,64 +402,50 @@
           },
           {
               "label": "Product Type",
-              "value":  "Appliances",
+              "value":  queryParams.productType,
               "displayToAgent": true,
               "transcriptFields": ["Product_Type__c"]
+          },
+          {
+            "label": "Email Transcript",
+            "value": "No",
+            "displayToAgent": true,
+            "transcriptFields": ["Email_Transcript__c"]
           }
           ];
           embedded_svc.settings.enabledFeatures = ['LiveAgent'];
           embedded_svc.settings.entryFeature = 'LiveAgent';
           embedded_svc.init(
-              'https://anker--dev.my.salesforce.com',
-              'https://dev-support-eufylife.cs73.force.com/eufydeexternal',
-              gslbBaseURL,
-              '00D6D0000008f1Q',
-              'Eufy_Appliances_DE_Deployment',
-              {
-                  baseLiveAgentContentURL: 'https://c.la1-c1cs-hnd.salesforceliveagent.com/content',
-                  deploymentId: '5726D0000008OXU',
-                  buttonId: '5736D0000008OqT',
-                  baseLiveAgentURL: 'https://d.la1-c1cs-hnd.salesforceliveagent.com/chat',
-                  eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6D0000004CSOUA2_17b4e67792a',
-                  isOfflineSupportEnabled: false
-              }
-          );
+            'https://ankertechnologycompanyltd.my.salesforce.com',
+            'https://anker.force.com/de',
+            gslbBaseURL,
+            '00D5g000004DkWQ',
+            'Eufy_Appliances_DE_Deployment',
+            {
+              baseLiveAgentContentURL: 'https://c.la2-c1-ukb.salesforceliveagent.com/content',
+              deploymentId: '5725g000000kKK5',
+              buttonId: '5735g000000kceA',
+              baseLiveAgentURL: 'https://d.la2-c1-ukb.salesforceliveagent.com/chat',
+              eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6D0000004CSOUA2_17b4e67792a',
+              isOfflineSupportEnabled: false
+            }
+         );
       };
       if (!window.embedded_svc) {
-          var s = document.createElement('script');
-          s.setAttribute('src', 'https://anker--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-          s.onload = function() {
-              initESW(null);
-          };
-          document.body.appendChild(s);
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://ankertechnologycompanyltd.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+        s.onload = function() {
+            initESW(null);
+        };
+        document.body.appendChild(s);
       } else {
-          initESW('https://service.force.com');
+        initESW('https://service.force.com');
       }
     }
     setTimeout(() => {
       chatBtnClick()
     }, 1000);
-    // 点击关闭调用手机端方法
-    var cloneBtn = setInterval(() => {
-      var fankui = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents().find('body')
-      var fankui1 = $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.snapins_postChat').contents().document.body
-      console.log(fankui, '触发',fankui1)
-      if ($('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.closeChatButton')) {
-        $('.modalContainer').find('.dockableContainer').find('.sidebarBody').find('.activeFeature').find('.featureBody').find('.stateBody').find('.endChatContainer').find('.closeChatButton').click(()=>{
-        var u = navigator.userAgent;
-        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
-        if (isAndroid) {
-          // 安卓
-          window.android.close()
-          console.log('android')
-        } else {
-          // ios
-          console.log('ios')
-        }
-        clearInterval(cloneBtn)
-        })
-      }
-    }, 1000);
   })
+
 </script>
 </html>
