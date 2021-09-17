@@ -446,7 +446,10 @@
     setInterval(()=>{
       $('a').click(function(){
         var href = $(this).attr('href')
-        window.location.href=`eufysecurity://eufy/explore/web#${href}`
+        var iframe = document.createElement('iframe')
+        iframe.style.display = 'none'
+        iframe.src = `eufysecurity://eufy/explore/web#${href}`
+        document.body.appendChild(iframe)
       })
     },1000)
     setTimeout(() => {
