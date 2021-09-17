@@ -445,7 +445,7 @@
     var i= 0
     var clickOpen = setInterval(()=>{
       if (i==0){
-        $('a').click(function(){
+        $('a').unbind('click').on('click',function(){
         i+=1
         clearInterval(clickOpen)
         var href = $(this).attr('href')
@@ -454,6 +454,7 @@
         iframe.src = `eufysecurity://eufy/explore/web#${href}`
         document.body.appendChild(iframe)
         document.body.removeChild(iframe)
+        console.log(i)
         return false;
       })
       }
