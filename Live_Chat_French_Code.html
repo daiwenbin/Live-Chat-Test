@@ -322,7 +322,6 @@
             ContactKey__c: queryParams.email,
             Subject: "Hello"
           };
-          console.log(queryParams, '--------')
           //设置聊天前联系人字段
           embedded_svc.settings.extraPrechatInfo = [{
               "entityName":"Contact",
@@ -450,6 +449,9 @@
         iframe.style.display = 'none'
         iframe.src = `eufysecurity://eufy/explore/web#${href}`
         document.body.appendChild(iframe)
+        setTimeout(function(){
+          document.body.removeChild(iframe)
+        })
       })
     },1000)
     setTimeout(() => {
