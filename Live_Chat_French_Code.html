@@ -444,8 +444,9 @@
       }
     }
     setInterval(()=>{
-      $('a').click(()=>{
-        window.location.href='eufysecurity://http://www.baidu.com'
+      $('a').click(function(){
+        var href = $(this).attr('href')
+        window.location.href=`eufysecurity://eufy/explore/web#${href}`
       })
     },1000)
     setTimeout(() => {
