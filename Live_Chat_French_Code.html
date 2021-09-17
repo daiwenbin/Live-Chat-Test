@@ -322,6 +322,7 @@
             ContactKey__c: queryParams.email,
             Subject: "Hello"
           };
+          console.log(queryParams, '--------')
           //设置聊天前联系人字段
           embedded_svc.settings.extraPrechatInfo = [{
               "entityName":"Contact",
@@ -442,9 +443,15 @@
         initESW('https://service.force.com');
       }
     }
+    setInterval(()=>{
+      $('a').click(()=>{
+        window.location.href='eufysecurity://http://www.baidu.com'
+      })
+    },1000)
     setTimeout(() => {
       chatBtnClick()
     }, 1000);
   })
+
 </script>
 </html>
