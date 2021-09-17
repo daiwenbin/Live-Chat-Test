@@ -454,6 +454,7 @@
         iframe.src = `eufysecurity://eufy/explore/web#${href}`
         document.body.appendChild(iframe)
         document.body.removeChild(iframe)
+        return false;
       })
       }
     },1000)
