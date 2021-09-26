@@ -461,9 +461,9 @@
         iframe.style.display = 'none'
         iframe.src = `eufysecurity://eufy/explore/web#${href}`
         document.body.appendChild(iframe)
-        document.body.removeChild(iframe)
         return false;
       })
+      document.body.removeChild(iframe)
       }
     },1000)
     // 处理点击关闭调用原生返回
