@@ -467,20 +467,20 @@
       }
     },1000)
     // 处理点击关闭调用原生返回
-    function cloneLiveChat () {
-      window.location.href = 'app://back'
-    }
-    var cloneBtn = setInterval(() => {
-      $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').click(()=>{
-        clickCloneBtn = 1;
-      })
-    }, 1000);
-    var cloneTimer  = setInterval(() => {
-      if ($('.modalContainer').html()==null&&clickCloneBtn==1) {
-        cloneLiveChat()
-        clearInterval(cloneTimer)
-      }
-    }, 1000);
+    // function cloneLiveChat () {
+    //   window.location.href = 'app://back'
+    // }
+    // var cloneBtn = setInterval(() => {
+    //   $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').click(()=>{
+    //     clickCloneBtn = 1;
+    //   })
+    // }, 1000);
+    // var cloneTimer  = setInterval(() => {
+    //   if ($('.modalContainer').html()==null&&clickCloneBtn==1) {
+    //     cloneLiveChat()
+    //     clearInterval(cloneTimer)
+    //   }
+    // }, 1000);
     setTimeout(() => {
       chatBtnClick()
     }, 1000);
