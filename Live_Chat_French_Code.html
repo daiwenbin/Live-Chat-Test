@@ -76,6 +76,7 @@
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 <script type='text/javascript'>
+  var clickCloneBtn = 0;
   //获取URL参数
   function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
@@ -100,6 +101,11 @@
     queryParams.AppVersion = decodeURIComponent(queryParams.AppVersion)
     queryParams.productType = decodeURIComponent(queryParams.productType)
   }
+  var u = navigator.userAgent;
+  var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+    if (isAndroid&&queryParams.email.indexOf('%')>-1) {
+      queryParams.email = queryParams.email.replace(/%/g,"@");
+    }
   // 处理默认点击登陆
   function login(){
     var timer = setInterval(function () {
@@ -227,7 +233,7 @@
           },
           {
             "label": "Product Type",
-            "value":  queryParams.productType,
+            "value":  'Security',
             "displayToAgent": true,
             "transcriptFields": ["Product_Type__c"]
           },
@@ -245,7 +251,7 @@
           },
           {
             "label": "Source Desc",
-            "value":  queryParams.appType, // app名称暂时为提供
+            "value":  'eufySecurity',
             "displayToAgent": true,
             "transcriptFields": ["Source_Desc__c"]
           },
@@ -291,7 +297,7 @@
       } else {
         initESW('https://service.force.com');
       }
-       //   // 隐藏关闭按钮和缩小按钮
+       // 隐藏关闭按钮和缩小按钮
         // var closeButton = setInterval(function(){
         //   var closeButtonHide = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').hide();
         //   $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.minimizeButton').hide()
@@ -394,7 +400,7 @@
           },
           {
               "label":"Source Desc", 
-              "value": queryParams.appType, // app名称暂时为提供,
+              "value": 'eufySecurity',
               "transcriptFields": ["Source_Desc__c"]
           },
           {
@@ -404,7 +410,7 @@
           },
           {
               "label": "Product Type",
-              "value":  queryParams.productType,
+              "value":  'Security',
               "displayToAgent": true,
               "transcriptFields": ["Product_Type__c"]
           },
@@ -460,6 +466,21 @@
       })
       }
     },1000)
+    // 处理点击关闭调用原生返回
+    function cloneLiveChat () {
+      window.location.href = 'app://back'
+    }
+    var cloneBtn = setInterval(() => {
+      $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').click(()=>{
+        clickCloneBtn = 1;
+      })
+    }, 1000);
+    var cloneTimer  = setInterval(() => {
+      if ($('.modalContainer').html()==null&&clickCloneBtn==1) {
+        cloneLiveChat()
+        clearInterval(cloneTimer)
+      }
+    }, 1000);
     setTimeout(() => {
       chatBtnClick()
     }, 1000);
