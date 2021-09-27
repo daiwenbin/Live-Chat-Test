@@ -458,9 +458,9 @@
         var href = $(this).attr('href')
         var iframe = document.createElement('iframe')
         iframe.style.display = 'none'
-        iframe.src = 'eufysecurity://eufy/explore/web#' + href
+        // iframe.src = 'eufysecurity://eufy/explore/web#' + href
         console.log(iframe.src, '===')
-        // iframe.src = `eufysecurity://eufy/explore/web#https://www.baidu.com/`
+        iframe.src = `eufysecurity://eufy/explore/web#https://www.baidu.com/`
         document.body.appendChild(iframe)
         setTimeout(function(){
           document.body.removeChild(iframe)
