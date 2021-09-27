@@ -76,7 +76,6 @@
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 <script type='text/javascript'>
-  var clickCloneBtn = 0;
   //获取URL参数
   function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
@@ -451,7 +450,7 @@
       }
     }
     var i= 0
-    var clickOpen = setInterval(()=>{
+    var clickOpen = setInterval(function(){
       if (i==0){
         $('a').unbind('click').on('click',function(){
         i+=1
@@ -459,28 +458,17 @@
         var href = $(this).attr('href')
         var iframe = document.createElement('iframe')
         iframe.style.display = 'none'
-        iframe.src = `eufysecurity://eufy/explore/web#${href}`
+        iframe.src = 'eufysecurity://eufy/explore/web#' + href
+        console.log(iframe.src, '===')
+        // iframe.src = `eufysecurity://eufy/explore/web#https://www.baidu.com/`
         document.body.appendChild(iframe)
+        setTimeout(function(){
+          document.body.removeChild(iframe)
+        })
         return false;
       })
-      document.body.removeChild(iframe)
       }
     },1000)
-    // 处理点击关闭调用原生返回
-    // function cloneLiveChat () {
-    //   window.location.href = 'app://back'
-    // }
-    // var cloneBtn = setInterval(() => {
-    //   $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').click(()=>{
-    //     clickCloneBtn = 1;
-    //   })
-    // }, 1000);
-    // var cloneTimer  = setInterval(() => {
-    //   if ($('.modalContainer').html()==null&&clickCloneBtn==1) {
-    //     cloneLiveChat()
-    //     clearInterval(cloneTimer)
-    //   }
-    // }, 1000);
     setTimeout(() => {
       chatBtnClick()
     }, 1000);
