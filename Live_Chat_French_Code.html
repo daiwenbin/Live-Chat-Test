@@ -458,7 +458,7 @@
         var href = $(this).attr('href')
         var iframe = document.createElement('iframe')
         iframe.style.display = 'none'
-        iframe.src = href
+        iframe.src = 'eufysecurity://eufy/explore/web#' + href
         console.log(iframe.src, '===')
         document.body.appendChild(iframe)
         setTimeout(function(){
