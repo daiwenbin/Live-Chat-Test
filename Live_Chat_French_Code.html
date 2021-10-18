@@ -101,6 +101,10 @@
     queryParams.AppVersion = decodeURIComponent(queryParams.AppVersion)
     queryParams.productType = decodeURIComponent(queryParams.productType)
   }
+  // 需要根据版本跳转不同live chat
+  // if (queryParams.AppVersion&&queryParams.AppVersion<=3.3.3) {
+  //   window.location.href= 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
+  // }
   // 处理默认点击登陆
   function login(){
     var timer = setInterval(function () {
@@ -364,6 +368,12 @@
               "transcriptFields": ["PageUrl__c"]
             },
             {
+              "label": "Os Type",
+              "value": "eufySecurity",
+              "displayToAgent": true,
+              "transcriptFields": ["Os_Type__c"]
+            },
+            {
               "label":"Vorname", 
               "value": "",
               "transcriptFields": ["First_Name__c"]
@@ -393,8 +403,9 @@
               "transcriptFields": ["Custom_Language__c"]
             },
             {
-              "label":"Source Desc", 
-              "value": queryParams.appType, // app名称暂时为提供,
+              "label": "Source Desc", 
+              "value": "eufySecurity",
+              // "value": queryParams.appType, // app名称暂时为提供,
               "transcriptFields": ["Source_Desc__c"]
             },
             {
