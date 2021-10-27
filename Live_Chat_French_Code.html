@@ -93,6 +93,10 @@
   // if (queryParams&&!queryParams.test&&Number(queryParams.test)!==1) {
   //   window.location.href= 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
   // }
+    // 需要根据版本跳转不同live chat
+  if (queryParams.AppVersion&&queryParams.AppVersion<=3.3.3) {
+    window.location.href= 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
+  }
   if (queryParams.email&&queryParams.name&&queryParams.country&&queryParams.AppVersion&&queryParams.productType) {
     queryParams.email = decodeURIComponent(queryParams.email)
     queryParams.name = decodeURIComponent(queryParams.name)
@@ -468,6 +472,13 @@
       })
       }
     },1000)
+    var closeButton = setInterval(function(){
+        // var closeButtonHide = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').hide();
+        var minBtn = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.minimizeButton').hide()
+          if (minBtn.length ===1) {
+            clearInterval(closeButton)
+          }
+      }, 500);
     setTimeout(() => {
       chatBtnClick()
     }, 1000);
