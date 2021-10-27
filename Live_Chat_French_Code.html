@@ -94,7 +94,7 @@
   //   window.location.href= 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
   // }
     // 需要根据版本跳转不同live chat
-  if (queryParams.AppVersion&&queryParams.AppVersion<=3.3.3) {
+  if (queryParams.AppVersion&&queryParams.AppVersion.split('.')[2]<3) {
     window.location.href= 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
   }
   if (queryParams.email&&queryParams.name&&queryParams.country&&queryParams.AppVersion&&queryParams.productType) {
