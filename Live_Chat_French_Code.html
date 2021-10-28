@@ -118,7 +118,7 @@
        * @returns
        */
       function runCommand(cmd) {
-        var rest = arguments.slice(1)
+        var rest = (arguments || []).slice(1)
         if (isAndroid) {
           var fn = (window.EufyJS || {})[cmd]
           if (typeof fn === 'function') {
@@ -210,8 +210,11 @@
         if ($('.startButton').html()) {
           $('.startButton').trigger('click')
           $('.center').hide()
-          $('#tips').show()
           $('.minimizeButton').hide()
+          // 避免与 center 的隐藏冲突
+          setTimeout(function() {
+            $('#tips').show()
+          })
           clearInterval(timer)
         }
       }, 100)
