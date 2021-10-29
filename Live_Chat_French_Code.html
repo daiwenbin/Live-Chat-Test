@@ -181,7 +181,7 @@
     }
     var queryParams = getParams()
     // 默认跳转
-    // window.location.href= 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
+    // window.location.href = 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
     // 需要根据版本跳转不同live chat
     if (queryParams.AppVersion && Number(queryParams.AppVersion.split('.')[2]) < 3) {
       window.location.href = 'https://v1.live800.com/live800/chatClient/chatbox.jsp' + window.location.search
@@ -542,21 +542,19 @@
           initESW('https://service.force.com')
         }
       }
-      var clickOpen = setInterval(function () {
-        $('a')
-          .unbind('click')
-          .on('click', function () {
-            var href = $(this).attr('href')
-            var iframe = document.createElement('iframe')
-            iframe.style.display = 'none'
-            iframe.src = 'eufysecurity://eufy/explore/web#' + href
-            document.body.appendChild(iframe)
-            setTimeout(function () {
-              document.body.removeChild(iframe)
-            })
+      $('body').on('click','a', function() {
+          var href = $(this).attr('href')
+          if (!href&&href=='') {
             return false
+          }
+          var iframe = document.createElement('iframe')
+          iframe.style.display = 'none'
+          iframe.src = 'eufysecurity://eufy/explore/web#' + href
+          document.body.appendChild(iframe)
+          setTimeout(function () {
+            document.body.removeChild(iframe)
           })
-      }, 1000)
+      })
       var closeButton = setInterval(function () {
         // var closeButtonHide = $('.modalContainer').find('.dockableContainer').find('embeddedservice-chat-header').find('.sidebarHeader').find('.closeButton').hide();
         var minBtn = $('.modalContainer')
