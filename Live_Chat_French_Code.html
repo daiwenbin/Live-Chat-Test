@@ -183,7 +183,7 @@
     // 默认跳转
     // window.location.href = 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
     // 需要根据版本跳转不同live chat
-    if (queryParams.AppVersion && Number(queryParams.AppVersion.split('.')[2]) < 3) {
+    if (queryParams.AppVersion && Number(queryParams.AppVersion.split('.')[1])<=3&&Number(queryParams.AppVersion.split('.')[2]) < 3) {
       window.location.href = 'https://v1.live800.com/live800/chatClient/chatbox.jsp' + window.location.search
     }
     if (
