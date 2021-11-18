@@ -160,7 +160,7 @@
       <p>Please hold one second while we connect you...</p>
     </div>
     <div class="center Tips" style="display: none;" id="tips">
-      <p>Live Chat has been closed, please return</p>
+      <p id="text-p">Live Chat has been closed, please return</p>
     </div>
   </body>
   <script type="text/javascript" src="https://service.force.com/embeddedservice/5.0/esw.min.js"></script>
@@ -206,6 +206,7 @@
     }
     // 处理默认点击登陆
     function login() {
+      var query = getParams()
       var timer = setInterval(function () {
         if ($('.startButton').html()) {
           $('.startButton').trigger('click')
@@ -213,6 +214,10 @@
           $('.minimizeButton').hide()
           // 避免与 center 的隐藏冲突
           setTimeout(function() {
+            if (query.lan !=='en') { 
+              // 根据语言设置文案
+              // $('#text-p').text('de')
+            }
             $('#tips').show()
           }, 5000)
           clearInterval(timer)
