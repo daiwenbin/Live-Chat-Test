@@ -157,7 +157,7 @@
     <input type="button" value="Chat" onclick="chatBtnClick()" class="btnClick" />
     <div class="center Loading" id="loading">
       <img src="https://eufy-security-pr.s3.amazonaws.com/overall/liveChatLoading.png" alt="" class="span" />
-      <p>Please hold one second while we connect you...</p>
+      <p class="loading-text"></p>
     </div>
     <div class="center Tips" style="display: none;" id="tips">
       <p id="text-p">Live Chat has been closed, please return</p>
@@ -180,6 +180,12 @@
       return params
     }
     var queryParams = getParams()
+    // 设置加载中的文案
+    if (queryParams.lan==='en') {
+      $('.loading-text').text('Please hold one second while we connect you...')
+    } else {
+      $('.loading-text').text('Bitte haben Sie einen kleinen Moment Geduld, während wir Sie mit einem Agenten verbinden..')
+    }
     // 默认跳转
     // window.location.href = 'https://v1.live800.com/live800/chatClient/chatbox.jsp'+window.location.search;
     // 需要根据版本跳转不同live chat
@@ -216,7 +222,7 @@
           setTimeout(function() {
             if (query.lan !=='en') { 
               // 根据语言设置文案
-              // $('#text-p').text('de')
+              $('#text-p').text('Chat wurde von Ihnen geschlossen, bitte verlassen Sie diese Seite.')
             }
             $('#tips').show()
           }, 5000)
