@@ -252,12 +252,12 @@
           backToNative()
         }
       })
-      if (query.lan === 'en') {
-        // 英语
-        EnConfig()
-      } else {
+      if (query.lan === 'de') {
         // 德语
         DeConfig()
+      } else {
+        // 英语
+        EnConfig()
       }
       function EnConfig() {
         var initESW = function (gslbBaseURL) {
@@ -376,11 +376,11 @@
               displayToAgent: true,
               transcriptFields: ['Email_Transcript__c'],
             },
-            {
-              label: 'IsAgent', 
-              value:  'yes',
-              transcriptFields: ['IsAgent__c']
-            }
+            // {
+            //   label: 'IsAgent', 
+            //   value:  'yes',
+            //   transcriptFields: ['IsAgent__c']
+            // }
           ]
           embedded_svc.settings.enabledFeatures = ['LiveAgent']
           embedded_svc.settings.entryFeature = 'LiveAgent'
@@ -523,11 +523,11 @@
               displayToAgent: true,
               transcriptFields: ['Email_Transcript__c'],
             },
-            {
-              label: 'IsAgent', 
-              value:  'yes',
-              transcriptFields: ['IsAgent__c']
-            }
+            // {
+            //   label: 'IsAgent', 
+            //   value:  'yes',
+            //   transcriptFields: ['IsAgent__c']
+            // }
           ]
           embedded_svc.settings.enabledFeatures = ['LiveAgent']
           embedded_svc.settings.entryFeature = 'LiveAgent'
