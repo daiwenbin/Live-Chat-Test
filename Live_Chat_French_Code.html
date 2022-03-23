@@ -42,6 +42,17 @@
       .Tips {
         font-size: 16px;
       }
+      .Tips .restart {
+        width: 70%;
+        height: 40px;
+        line-height: 40px;
+        margin: 0 auto;
+        background: rgba(11, 98, 136);
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        border-radius: 20px;
+      }
       .Loading .span {
         display: inline-block;
         width: 50px;
@@ -161,7 +172,8 @@
       <p class="loading-text"></p>
     </div>
     <div class="center Tips" style="display: none;" id="tips">
-      <p id="text-p">Live Chat has been closed, please return</p>
+      <p id="text-p" style="color: rgba(11, 98, 136)">You have already closed the chat.</p>
+      <div class="restart" id="restart" onclick="window.location.reload()">Restart a Chat</div>
     </div>
   </body>
   <script type="text/javascript" src="https://service.force.com/embeddedservice/5.0/esw.min.js"></script>
@@ -182,10 +194,10 @@
     }
     var queryParams = getParams()
     // 设置加载中的文案
-    if (queryParams.lan==='en') {
-      $('.loading-text').text('Please hold one second while we connect you...')
-    } else {
+    if (queryParams.lan==='de') {
       $('.loading-text').text('Bitte haben Sie einen kleinen Moment Geduld, während wir Sie mit einem Agenten verbinden..')
+    } else {
+      $('.loading-text').text('Please hold one second while we connect you...')
     }
     if (
       queryParams.email &&
@@ -215,9 +227,10 @@
           $('.minimizeButton').hide()
           // 避免与 center 的隐藏冲突
           setTimeout(function() {
-            if (query.lan !=='en') { 
+            if (query.lan ==='de') { 
               // 根据语言设置文案
-              $('#text-p').text('Chat wurde von Ihnen geschlossen, bitte verlassen Sie diese Seite.')
+              $('#text-p').text('Bereits haben Sie den Chat geschlossen.')
+              $('#restart').text('Neuen Chat starten')
             }
             $('#tips').show()
           }, 5000)
@@ -376,11 +389,11 @@
               displayToAgent: true,
               transcriptFields: ['Email_Transcript__c'],
             },
-            // {
-            //   label: 'IsAgent', 
-            //   value:  'yes',
-            //   transcriptFields: ['IsAgent__c']
-            // }
+            {
+              label: 'IsAgent', 
+              value:  'yes',
+              transcriptFields: ['IsAgent__c']
+            }
           ]
           embedded_svc.settings.enabledFeatures = ['LiveAgent']
           embedded_svc.settings.entryFeature = 'LiveAgent'
@@ -523,11 +536,11 @@
               displayToAgent: true,
               transcriptFields: ['Email_Transcript__c'],
             },
-            // {
-            //   label: 'IsAgent', 
-            //   value:  'yes',
-            //   transcriptFields: ['IsAgent__c']
-            // }
+            {
+              label: 'IsAgent', 
+              value:  'yes',
+              transcriptFields: ['IsAgent__c']
+            }
           ]
           embedded_svc.settings.enabledFeatures = ['LiveAgent']
           embedded_svc.settings.entryFeature = 'LiveAgent'
